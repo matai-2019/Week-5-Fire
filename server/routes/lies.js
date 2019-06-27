@@ -13,7 +13,15 @@ router.get('/', (req, res) => {
     })
 })
 
-
+router.post('/', (req, res) => {
+  db.addLie(req.body)
+    .then(() => {
+      res.status(201).send()
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
 
 
 module.exports = router

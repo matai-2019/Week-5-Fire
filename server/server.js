@@ -8,9 +8,9 @@ const lies = require('./routes/lies')
 const server = express()
 
 server.use(express.json())
-server.use(cors({origin: 'http://localhost:8080'}))
+server.use(cors())
 server.use(express.static(path.join(__dirname, '../public')))
 
-server.use('/api/lies', lies)
+server.use('/api/v1/lies', lies)
 
 module.exports = server
