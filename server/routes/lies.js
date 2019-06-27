@@ -4,9 +4,9 @@ const router = express.Router()
 const db = require('../db/db.js')
 
 router.get('/', (req, res) => {
-  db.getWidgets()
-    .then(widgets => {
-      res.send(widgets)
+  db.getLies()
+    .then(lies => {
+      res.send(lies)
     })
     .catch(err => {
       res.status(500).send(err.message)
@@ -14,21 +14,14 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  db.saveWidget(req.body)
-    .then(res.sendStatus(200))
+  db.addLie(req.body)
+    .then(() => {
+      res.status(201).send()
+    })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
-
-router.delete('/', (req, res) => {
-  db.deleteWidget(req.body.id)
-    .then(res.sendStatus(200))
-    .catch(err => {
-      res.status(500).send(err.message)
-    })
-})
-
 
 
 module.exports = router
