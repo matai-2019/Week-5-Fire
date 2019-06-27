@@ -3,7 +3,7 @@ import './App.css'
 import { Header, Container } from 'semantic-ui-react'
 import { Route } from "react-router-dom";
 
-import FinalPage from './finalPage'
+import FinalPage from './FinalPage'
 
 function App() {
   return (
