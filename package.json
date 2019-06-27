@@ -13,7 +13,7 @@
     "superagent": "^5.1.0"
   },
   "scripts": {
-    "dev": "nodemon --watch server & react-scripts start",
+    "dev": "nodemon --watch server & start",
     "server": "nodemon --watch server",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -34,5 +34,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
