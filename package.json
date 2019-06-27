@@ -7,10 +7,16 @@
     "knex": "^0.18.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "sqlite3": "^4.0.9",
     "superagent": "^5.1.0"
+=======
+    "react-scripts": "3.0.1",
+    "semantic-ui": "^2.4.2",
+    "semantic-ui-react": "^0.87.2"
+>>>>>>> e0bff7981761ba89688bcbead6055e335672d013
   },
   "scripts": {
     "dev": "nodemon --watch server & react-scripts start",
