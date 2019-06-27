@@ -13,6 +13,8 @@
     "superagent": "^5.1.0"
   },
   "scripts": {
+    "dev": "nodemon --watch server & react-scripts start",
+    "server": "nodemon --watch server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
