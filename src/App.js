@@ -5,10 +5,36 @@ import { Container, Segment, Image, Divider } from 'semantic-ui-react'
 import AppHeader from './components/AppHeader'
 import FinalPage from './components/FinalPage'
 import TrumpGame from './components/TrumpGame';
+import { getQuotes, getLies } from './api'
 
 class App extends React.Component {
-  componentDidMount() {
-    //connect with db and api pass down to TrumpGame
+constructor(props) {
+  super(props)
+  this.state = {}
+}
+
+getLiesAndStuffTrumpSays = () => {
+  Promise.all([
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes()
+  ]).then(quotes => {
+    getLies()
+    .then(lies => {
+      this.setState({ourLies: lies, quotes})
+    })
+})
+}
+
+  componentDidMount () {
+    this.getLiesAndStuffTrumpSays()
   }
 
   render() {
@@ -17,7 +43,7 @@ class App extends React.Component {
         <div id='background'>
         <Container>
           <AppHeader />
-          <TrumpGame />
+          {this.state.quotes && this.state.ourLies && <TrumpGame lies={this.state.ourLies} quotes={this.state.quotes}/>}
         </Container>
       </div>
       <Route path='/final' exact component={FinalPage} />
