@@ -1,9 +1,11 @@
 import React from 'react'
-import { Header } from 'semantic-ui-react'
+import './AppHeader.css'
 
 const AppHeader = () => {
   return (
-    <Header as = 'h1'>Two Trumps and a Lie </Header>
+    <>
+    <h1 className = 'title'>Two Trumps and a Lie </h1>
+    </>
   )
 }
 
