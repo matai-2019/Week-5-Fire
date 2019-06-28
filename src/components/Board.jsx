@@ -18,6 +18,7 @@ class Board extends React.Component {
         message: 'card3',
         value: 'trump'
       },
+      score: 0,
       quotes: props.quotes,
       lies: props.lies,
       result: null
@@ -25,8 +26,10 @@ class Board extends React.Component {
   }
 
   // Function that pops lies and 
-  getLies = () => {
-    console.log('In getlies',this.state)
+  getLies = (e) => {
+
+    e && this.checkLies(e) && this.score ++ 
+
     const { quotes, lies } = this.state
     const cards = [quotes.pop(), quotes.pop(), lies.pop()]
     this.shuffle(cards)
@@ -40,9 +43,10 @@ class Board extends React.Component {
     })
   }
 
-  clickHandler(e){
-    
+  checkLies = (e) => {
+    return e.target.id === 'lie'
   }
+
 
   shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -61,13 +65,13 @@ class Board extends React.Component {
         <Container>
           <Grid columns={3}>
             <GridColumn>
-              <TrumpCard trumpCard={this.state.card1} />
+              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card1} />
             </GridColumn>
             <GridColumn>
-              <TrumpCard trumpCard={this.state.card2} />
+              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card2} />
             </GridColumn>
             <GridColumn>
-              <TrumpCard trumpCard={this.state.card3} />
+              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card3} />
             </GridColumn>
           </Grid>
         </Container>
