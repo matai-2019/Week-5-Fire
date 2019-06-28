@@ -39,6 +39,10 @@ class Board extends React.Component {
     })
   }
 
+  clickHandler(e){
+    
+  }
+
   shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
