@@ -3,19 +3,13 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import { Container } from 'semantic-ui-react'
 import AppHeader from './components/AppHeader'
-import Board from './components/Board'
 import FinalPage from './components/FinalPage'
 import { stat } from 'fs';
+import TrumpGame from './components/TrumpGame';
 
 class App extends React.Component {
-  state = {
-    score: 0,
-    quotes: [],
-    lie: []
-  }
-
   componentDidMount () {
-    //connect with db and api
+    //connect with db and api pass down to TrumpGame
   }
 
   render () {
@@ -23,7 +17,7 @@ class App extends React.Component {
       <>
         <Container>
           <AppHeader />
-          <Board />
+          <TrumpGame />
         </Container>
         <Route path='/final' exact component={FinalPage} />
       </>
