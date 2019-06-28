@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Grid, GridColumn } from 'semantic-ui-react';
+import { Container, Grid, GridColumn, Header } from 'semantic-ui-react';
 import TrumpCard from './TrumpCard';
+import './Board.css'
 
 class Board extends React.Component {
   constructor(props) {
@@ -60,8 +61,8 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div className="Board">
-        <p>Board</p>
+      <div className = "Board" >
+        <h2>Can you find the lie?</h2>
         <Container>
           <Grid columns={3}>
             <GridColumn>

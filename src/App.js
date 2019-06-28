@@ -1,10 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
-import { Container } from 'semantic-ui-react'
+import { Container, Segment, Image, Divider } from 'semantic-ui-react'
 import AppHeader from './components/AppHeader'
 import FinalPage from './components/FinalPage'
-import { stat } from 'fs';
 import TrumpGame from './components/TrumpGame';
 import { getQuotes, getLies } from './api'
 
@@ -38,14 +37,16 @@ getLiesAndStuffTrumpSays = () => {
     this.getLiesAndStuffTrumpSays()
   }
 
-  render () {
+  render() {
     return (
       <>
+        <div id='background'>
         <Container>
           <AppHeader />
           {this.state.quotes && this.state.ourLies && <TrumpGame lies={this.state.ourLies} quotes={this.state.quotes}/>}
         </Container>
-        <Route path='/final' exact component={FinalPage} />
+      </div>
+      <Route path='/final' exact component={FinalPage} />
       </>
     )
   }
