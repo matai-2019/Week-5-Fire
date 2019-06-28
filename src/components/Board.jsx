@@ -26,9 +26,8 @@ class Board extends React.Component {
   }
 
   // Function that pops lies and 
-  getLies = (e) => {
-
-    e && this.checkLies(e) && this.score ++ 
+  getLies = () => {
+    let score = this.state.score
 
     const { quotes, lies } = this.state
     const cards = [quotes.pop(), quotes.pop(), lies.pop()]
@@ -39,12 +38,20 @@ class Board extends React.Component {
       lies,
       card1: cards[0],
       card2: cards[1],
-      card3: cards[2]
+      card3: cards[2],
+      score: score
     })
   }
 
-  checkLies = (e) => {
-    return e.target.id === 'lie'
+  checkLies = (val) => {
+    console.log('val', val)
+
+    if (val === 'lie'){
+      this.setState({score: this.state.score++})
+
+    }
+    console.log('checklies')
+    this.getLies()
   }
 
 
@@ -55,7 +62,6 @@ class Board extends React.Component {
 
   componentDidMount() {
     this.getLies()
-    console.log('BORAD', this.state)
   }
 
   render() {
@@ -65,13 +71,13 @@ class Board extends React.Component {
         <Container>
           <Grid columns={3}>
             <GridColumn>
-              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card1} />
+              <TrumpCard checkLies={this.checkLies} trumpCard={this.state.card1} />
             </GridColumn>
             <GridColumn>
-              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card2} />
+              <TrumpCard checkLies={this.checkLies} trumpCard={this.state.card2} />
             </GridColumn>
             <GridColumn>
-              <TrumpCard  getLies={this.getLies} trumpCard={this.state.card3} />
+              <TrumpCard checkLies={this.checkLies} trumpCard={this.state.card3} />
             </GridColumn>
           </Grid>
         </Container>

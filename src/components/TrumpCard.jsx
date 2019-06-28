@@ -3,10 +3,12 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 import { getQuote } from '../api'
 
 
-const TrumpCard = ({trumpCard, getLies}) => {
+const TrumpCard = ({trumpCard, checkLies}) => {
 
   return (
-    <Card id={trumpCard.value} onClick={getLies}>
+    <Card id={trumpCard.value} onClick={(e) => {
+      return checkLies(trumpCard.value)
+    }}>
       {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
       <Card.Content>
         <Card.Header>Trump says?</Card.Header>
