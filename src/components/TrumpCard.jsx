@@ -2,15 +2,19 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { getQuote } from '../api'
 
-const TrumpCard = () => {
+
+const TrumpCard = ({trumpCard}) => {
   return (
     <Card>
       {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
       <Card.Content>
         <Card.Header>Trump says?</Card.Header>
         <Card.Description>
-          "She’s Not My Type"
+          {trumpCard.message}
         </Card.Description>
+        <Card.Meta>
+          {trumpCard.value}
+        </Card.Meta>
       </Card.Content>
     </Card>
   )
