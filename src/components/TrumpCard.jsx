@@ -4,9 +4,10 @@ import { Card } from 'semantic-ui-react'
 import { getQuote } from '../api'
 
 
-const TrumpCard = ({trumpCard}) => {
+const TrumpCard = ({trumpCard, getLies}) => {
+
   return (
-    <Card link >
+    <Card link id={trumpCard.value} onClick={getLies}>
       {/* <Image src='/images/avatar/large/matthew.png' wrapped ui={false} /> */}
       <Card.Content>
         <Card.Header>Trump says?</Card.Header>

@@ -6,7 +6,6 @@ export class TrumpGame extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      score: 0,
       quotes: props.quotes,
       lies: props.lies,
     }
