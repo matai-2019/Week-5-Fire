@@ -15,7 +15,8 @@ class Board extends React.Component {
     card3: {
       message: 'card3',
       value: 'trump'
-    }
+    },
+    result: null
   }
 
   render() {
