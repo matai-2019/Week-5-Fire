@@ -18,6 +18,7 @@ class Board extends React.Component {
         message: 'card3',
         value: 'trump'
       },
+      score: 0,
       quotes: props.quotes,
       lies: props.lies,
       result: null
@@ -25,7 +26,10 @@ class Board extends React.Component {
   }
 
   // Function that pops lies and 
-  getLies = () => {
+  getLies = (e) => {
+
+    e && this.checkLies(e) && this.score ++ 
+
     const { quotes, lies } = this.state
     const cards = [quotes.pop(), quotes.pop(), lies.pop()]
     this.shuffle(cards)
@@ -37,6 +41,10 @@ class Board extends React.Component {
       card2: cards[1],
       card3: cards[2]
     })
+  }
+
+  checkLies = (e) => {
+    return e.target.id === 'lie'
   }
 
 
