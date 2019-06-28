@@ -26,8 +26,9 @@ class Board extends React.Component {
 
   // Function that pops lies and 
   getLies = () => {
+    console.log('In getlies',this.state)
     const { quotes, lies } = this.state
-    const cards = [quotes.pop(), lies.pop(), lies.pop()]
+    const cards = [quotes.pop(), quotes.pop(), lies.pop()]
     this.shuffle(cards)
 
     this.setState({

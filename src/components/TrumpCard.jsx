@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import { getQuote } from '../api'
 
 
 const TrumpCard = ({trumpCard}) => {
@@ -11,7 +12,7 @@ const TrumpCard = ({trumpCard}) => {
         <Card.Description>
           {trumpCard.message}
         </Card.Description>
-        <Card.Meta>
+        <Card.Meta hidden="true">
           {trumpCard.value}
         </Card.Meta>
       </Card.Content>

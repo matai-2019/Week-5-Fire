@@ -6,10 +6,36 @@ import AppHeader from './components/AppHeader'
 import FinalPage from './components/FinalPage'
 import { stat } from 'fs';
 import TrumpGame from './components/TrumpGame';
+import { getQuotes, getLies } from './api'
 
 class App extends React.Component {
+constructor(props) {
+  super(props)
+  this.state = {}
+}
+
+getLiesAndStuffTrumpSays = () => {
+  Promise.all([
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes(),
+    getQuotes()
+  ]).then(quotes => {
+    getLies()
+    .then(lies => {
+      this.setState({ourLies: lies, quotes})
+    })
+})
+}
+
   componentDidMount () {
-    //connect with db and api pass down to TrumpGame
+    this.getLiesAndStuffTrumpSays()
   }
 
   render () {
@@ -17,7 +43,7 @@ class App extends React.Component {
       <>
         <Container>
           <AppHeader />
-          <TrumpGame />
+          {this.state.quotes && this.state.ourLies && <TrumpGame lies={this.state.ourLies} quotes={this.state.quotes}/>}
         </Container>
         <Route path='/final' exact component={FinalPage} />
       </>
