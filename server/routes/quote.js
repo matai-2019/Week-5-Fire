@@ -6,7 +6,7 @@ const url = 'https://api.tronalddump.io/random/quote'
 
 router.get('/', (req, res) => {
   request.get(url).then(response => {
-    res.json(response.body.value)
+    res.json({message: response.body.value, value: 'trump'})
   }).catch(err => {
     res.status(500).send(err.message)
   })

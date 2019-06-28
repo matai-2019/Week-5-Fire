@@ -6,7 +6,9 @@ const db = require('../db/db.js')
 router.get('/', (req, res) => {
   db.getLies()
     .then(lies => {
-      res.send(lies)
+      res.json(lies.map(lie => {
+        return { message: lie.lie, value: 'lie' }
+      }))
     })
     .catch(err => {
       res.status(500).send(err.message)

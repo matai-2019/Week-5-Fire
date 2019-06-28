@@ -27,9 +27,9 @@ getLiesAndStuffTrumpSays = () => {
     getQuotes(),
     getQuotes()
   ]).then(quotes => {
-    getLies().then(lies => {
-      const ourLies = lies.map(lie => lie.lie)
-      this.setState({ourLies, quotes})
+    getLies()
+    .then(lies => {
+      this.setState({ourLies: lies, quotes})
     })
 })
 }
@@ -43,7 +43,7 @@ getLiesAndStuffTrumpSays = () => {
       <>
         <Container>
           <AppHeader />
-          <TrumpGame />
+          {this.state.quotes && this.state.ourLies && <TrumpGame lies={this.state.ourLies} quotes={this.state.quotes}/>}
         </Container>
         <Route path='/final' exact component={FinalPage} />
       </>

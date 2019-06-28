@@ -12,7 +12,7 @@ const TrumpCard = ({trumpCard}) => {
         <Card.Description>
           {trumpCard.message}
         </Card.Description>
-        <Card.Meta>
+        <Card.Meta hidden="true">
           {trumpCard.value}
         </Card.Meta>
       </Card.Content>
